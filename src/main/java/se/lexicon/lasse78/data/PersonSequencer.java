@@ -3,7 +3,7 @@ package se.lexicon.lasse78.data;
 public class PersonSequencer {
     private static int personId;
 
-    public static int nextPersonId(int personId) {
+    public static int nextPersonId() {
         personId++;
         return personId;
     }

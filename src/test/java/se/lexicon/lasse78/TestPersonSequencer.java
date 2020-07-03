@@ -11,11 +11,11 @@ public class TestPersonSequencer {
         //Arrange
 
         //Act
-        int returnValue = nextPersonId(5);
+        int oldCounter = nextPersonId();
+        int newCounter = nextPersonId();
 
         //Assert
-        assertEquals(6, returnValue);
+        assertEquals(oldCounter+1, newCounter);
     }
-
 
 }

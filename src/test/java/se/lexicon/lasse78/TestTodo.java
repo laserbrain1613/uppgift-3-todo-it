@@ -7,8 +7,8 @@ import static org.junit.Assert.*;
 
 public class TestTodo {
 
-    Person testPerson = new Person(4096, "Holly", "Wood");
-    Todo testTodo = new Todo(42, "Hello", true, testPerson);
+    Person DEFAULT_TESTPERSON = new Person(4096, "Holly", "Wood");
+    Todo DEFAULT_TESTTODO = new Todo(42, "Hello", true, DEFAULT_TESTPERSON);
 
     @Test
     public void testConstructor() {
@@ -17,11 +17,11 @@ public class TestTodo {
         //Act
 
         //Assert
-        assertEquals(42, testTodo.getTodoId());
-        assertEquals("Hello", testTodo.getDescription());
-        assertTrue(testTodo.isDone());
-        assertEquals(testPerson, testTodo.getAssignee());
-        assertNotNull(testTodo.getAssignee());
+        assertEquals(42, DEFAULT_TESTTODO.getTodoId());
+        assertEquals("Hello", DEFAULT_TESTTODO.getDescription());
+        assertTrue(DEFAULT_TESTTODO.isDone());
+        assertEquals(DEFAULT_TESTPERSON, DEFAULT_TESTTODO.getAssignee());
+        assertNotNull(DEFAULT_TESTTODO.getAssignee());
     }
 
     @Test
@@ -29,22 +29,22 @@ public class TestTodo {
         //Arrange
 
         //Act
-        testTodo.setDescription("New description");
+        DEFAULT_TESTTODO.setDescription("New description");
 
         //Assert
-        assertEquals("New description", testTodo.getDescription());
+        assertEquals("New description", DEFAULT_TESTTODO.getDescription());
     }
 
     @Test
     public void changeBoolean() {
         //Arrange
-        boolean oldBoolean = testTodo.isDone();
+        boolean oldBoolean = DEFAULT_TESTTODO.isDone();
 
         //Act
-        testTodo.setDone(!oldBoolean);
+        DEFAULT_TESTTODO.setDone(!oldBoolean);
 
         //Assert
-        assertTrue(oldBoolean != testTodo.isDone());
+        assertTrue(oldBoolean != DEFAULT_TESTTODO.isDone());
     }
 
     @Test
@@ -53,11 +53,11 @@ public class TestTodo {
         Person anotherTestPerson = new Person(8192, "Jack", "Pott");
 
         //Act
-        testTodo.setAssignee(anotherTestPerson);
+        DEFAULT_TESTTODO.setAssignee(anotherTestPerson);
 
         //Assert
-        assertNotSame(testPerson, testTodo.getAssignee());
-        assertNotNull(testTodo.getAssignee());
+        assertNotSame(DEFAULT_TESTPERSON, DEFAULT_TESTTODO.getAssignee());
+        assertNotNull(DEFAULT_TESTTODO.getAssignee());
     }
 
 
