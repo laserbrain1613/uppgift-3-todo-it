@@ -11,10 +11,12 @@ public class TestTodoSequencer {
         //Arrange
 
         //Act
-        int returnValue = todoNextPersonId(5);
+        int oldCounter = todoNextPersonId();
+        int newCounter = todoNextPersonId();
+
 
         //Assert
-        assertEquals(6, returnValue);
+        assertEquals(oldCounter + 1, newCounter);
     }
 
 

@@ -78,15 +78,15 @@ public class TestPeople {
     @Test
     public void testFindByIdTrue() {
         //Arrange
-        Person foundTestPerson;
+        Person foundId;
         People.createPerson("James", "Hetfield"); //ID 1
         People.createPerson("Lars", "Ulrich"); // ID 2
 
         //Act
-        foundTestPerson = People.findById(2); // Looking for Lars Ulrich's ID
+        foundId = People.findById(2); // Looking for Lars Ulrich's ID
 
         //Assert
-        assertSame(foundTestPerson, People.findById(2));
+        assertSame(foundId, People.findById(2));
     }
 
     @Test
