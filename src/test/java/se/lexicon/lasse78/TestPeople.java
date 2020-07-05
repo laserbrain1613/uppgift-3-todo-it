@@ -19,7 +19,7 @@ public class TestPeople {
     }
 
     @Test
-    public void testCreateTwoPersons() {
+    public void createTwoPersons() {
         //Assert
         assertEquals(1, testPeople.findAll()[0].getPersonId());
         assertEquals("James", testPeople.findAll()[0].getFirstName());
@@ -42,7 +42,7 @@ public class TestPeople {
     }
 
     @Test
-    public void testFindByIdTrue() {
+    public void findByIdTrue() {
         //Act
         Person foundId = testPeople.findById(2);
 
@@ -51,7 +51,7 @@ public class TestPeople {
     }
 
     @Test
-    public void testFindByIdFalse() {
+    public void findByIdFalse() {
         //Act
         Person foundId = testPeople.findById(3); // Should return a null
 
