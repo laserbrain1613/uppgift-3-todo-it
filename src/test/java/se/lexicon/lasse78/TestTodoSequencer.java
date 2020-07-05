@@ -9,10 +9,10 @@ public class TestTodoSequencer {
     @Test
     public void testTodoNextPersonId() {
         //Arrange
+        int oldCounter = nextTodoPersonId();
 
         //Act
-        int oldCounter = todoNextPersonId();
-        int newCounter = todoNextPersonId();
+        int newCounter = nextTodoPersonId();
 
 
         //Assert

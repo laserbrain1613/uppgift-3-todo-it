@@ -6,7 +6,7 @@ public class Person {
     private String firstName;
     private String lastName;
 
-    //Very picky constructor
+    //Constructor
     public Person(int personId, String firstName, String lastName) {
         this.personId = personId;
         this.firstName = firstName;

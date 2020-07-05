@@ -1,63 +1,54 @@
 package se.lexicon.lasse78;
 
-import org.junit.Test;
 import se.lexicon.lasse78.model.Todo;
 import se.lexicon.lasse78.model.Person;
+import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestTodo {
 
-    Person DEFAULT_TESTPERSON = new Person(4096, "Holly", "Wood");
-    Todo DEFAULT_TESTTODO = new Todo(42, "Hello", true, DEFAULT_TESTPERSON);
+    Todo testTodo = new Todo(1, "Hello");
 
     @Test
     public void testConstructor() {
-        //Arrange
-
-        //Act
-
         //Assert
-        assertEquals(42, DEFAULT_TESTTODO.getTodoId());
-        assertEquals("Hello", DEFAULT_TESTTODO.getDescription());
-        assertTrue(DEFAULT_TESTTODO.isDone());
-        assertEquals(DEFAULT_TESTPERSON, DEFAULT_TESTTODO.getAssignee());
-        assertNotNull(DEFAULT_TESTTODO.getAssignee());
+        assertEquals(1, testTodo.getTodoId());
+        assertEquals("Hello", testTodo.getDescription());
     }
 
     @Test
     public void changeDescription() {
-        //Arrange
-
         //Act
-        DEFAULT_TESTTODO.setDescription("New description");
+        testTodo.setDescription("New description");
 
         //Assert
-        assertEquals("New description", DEFAULT_TESTTODO.getDescription());
+        assertEquals("New description", testTodo.getDescription());
     }
 
     @Test
     public void changeBoolean() {
         //Arrange
-        boolean oldBoolean = DEFAULT_TESTTODO.isDone();
+        boolean oldBoolean = testTodo.isDone();
 
         //Act
-        DEFAULT_TESTTODO.setDone(!oldBoolean);
+        testTodo.setDone(!oldBoolean);
 
         //Assert
-        assertTrue(oldBoolean != DEFAULT_TESTTODO.isDone());
+        assertTrue(oldBoolean != testTodo.isDone());
     }
 
     @Test
-    public void changeClass() {
+    public void changeAssignee() {
         //Arrange
-        Person anotherTestPerson = new Person(8192, "Jack", "Pott");
+        Person firstTestPerson = new Person(1, "Jack", "Pott");
+        Person secondTestPerson = new Person(2, "Joe", "King");
+        testTodo.setAssignee(firstTestPerson);
 
         //Act
-        DEFAULT_TESTTODO.setAssignee(anotherTestPerson);
+        testTodo.setAssignee(secondTestPerson);
 
         //Assert
-        assertNotSame(DEFAULT_TESTPERSON, DEFAULT_TESTTODO.getAssignee());
-        assertNotNull(DEFAULT_TESTTODO.getAssignee());
+        assertSame(secondTestPerson, testTodo.getAssignee());
     }
 
 

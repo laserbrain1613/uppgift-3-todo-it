@@ -7,12 +7,10 @@ public class Todo {
     private boolean done;
     private Person assignee;
 
-    //Generic constructor
-    public Todo(int todoId, String description, boolean done, Person assignee) {
+    //Constructor
+    public Todo(int todoId, String description) {
         this.todoId = todoId;
         this.description = description;
-        this.done = done;
-        this.assignee = assignee;
     }
 
     //Generic setters and getters

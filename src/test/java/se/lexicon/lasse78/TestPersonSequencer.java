@@ -9,9 +9,9 @@ public class TestPersonSequencer {
     @Test
     public void testNextPersonId() {
         //Arrange
+        int oldCounter = nextPersonId();
 
         //Act
-        int oldCounter = nextPersonId();
         int newCounter = nextPersonId();
 
         //Assert

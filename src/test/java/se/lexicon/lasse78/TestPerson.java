@@ -6,24 +6,18 @@ import se.lexicon.lasse78.model.Person;
 
 public class TestPerson {
 
+    Person testPerson = new Person(1, "John", "Smith");
+
     @Test
     public void constructorTest() {
-        //Arrange
-        Person testPerson = new Person(31415, "John", "Smith");
-
-        //Act
-
         //Assert
-        assertEquals(31415, testPerson.getPersonId());
+        assertEquals(1, testPerson.getPersonId());
         assertEquals("John", testPerson.getFirstName());
         assertEquals("Smith", testPerson.getLastName());
     }
 
     @Test
     public void changeFirstName() {
-        //Arrange
-        Person testPerson = new Person(31415, "John", "Smith");
-
         //Act
         testPerson.setFirstName("Will");
 
@@ -33,9 +27,6 @@ public class TestPerson {
 
     @Test
     public void changeLastName() {
-        //Arrange
-        Person testPerson = new Person(31415, "John", "Smith");
-
         //Act
         testPerson.setLastName("Travolta");
 
