@@ -14,9 +14,13 @@ public class People {
         PersonSequencer.reset();
     }
 
-    public int size() { return array.length; }
+    public int size() { // Is there a difference between size() and findAll().length?
+        return array.length;
+    }
 
-    public Person[] findAll() { return array; }
+    public Person[] findAll() {
+        return array;
+    }
 
     public Person findById(int personId) {
         for (int i = 0; i < size(); i++) {
@@ -31,8 +35,18 @@ public class People {
         Person tempPerson = new Person(PersonSequencer.nextPersonId(), firstName, lastName);
         array = Arrays.copyOf(array, array.length + 1);
         array[array.length - 1] = tempPerson;
-        return tempPerson;
+        return tempPerson; // Assignment instructed me to return this. Why?
     }
 
+    public void deletePerson(int personId) {
+        for (int i = 0; i < size(); i++) {
+            if (array[i].getPersonId() == personId) {
+                for (int j = i + 1; j < size(); j++) {
+                    array[i] = array[j];
+                }
+                array = Arrays.copyOf(array, array.length - 1);
+            }
+        }
+    }
 
 }

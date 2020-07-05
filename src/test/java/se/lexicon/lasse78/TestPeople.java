@@ -19,7 +19,7 @@ public class TestPeople {
     }
 
     @Test
-    public void createTwoPersons() {
+    public void checkCreatedPersons() {
         //Assert
         assertEquals(1, testPeople.findAll()[0].getPersonId());
         assertEquals("James", testPeople.findAll()[0].getFirstName());
@@ -53,10 +53,40 @@ public class TestPeople {
     @Test
     public void findByIdFalse() {
         //Act
-        Person foundId = testPeople.findById(3); // Should return a null
+        Person foundId = testPeople.findById(3);
 
         //Assert
         assertNull(foundId);
+    }
+
+    @Test
+    public void deletePersonNotFound() {
+        //Arrange
+
+        //Act
+        testPeople.deletePerson(5); // testPeople has only two objects as default
+
+        //Assert
+        assertEquals(2, testPeople.size());
+
+    }
+
+    @Test
+    public void deletePersonFound() {
+        //Arrange
+        testPeople.createPerson("Kirk", "Hammett");
+
+        //Act
+        testPeople.deletePerson(2); // Deleting Lars, James and Kirk remains
+
+        //Assert
+        assertEquals(2, testPeople.size());
+        assertEquals(1, testPeople.findAll()[0].getPersonId());
+        assertEquals("James", testPeople.findAll()[0].getFirstName());
+        assertEquals("Hetfield", testPeople.findAll()[0].getLastName());
+        assertEquals(3, testPeople.findAll()[1].getPersonId());
+        assertEquals("Kirk", testPeople.findAll()[1].getFirstName());
+        assertEquals("Hammett", testPeople.findAll()[1].getLastName());
     }
 
 }

@@ -21,7 +21,7 @@ public class TestTodoItems {
     }
 
     @Test
-    public void createTwoPersons() {
+    public void createTwoObjects() {
         //Assert
         assertEquals(1, testTodo.findAll()[0].getTodoId());
         assertEquals("Fancy Description", testTodo.findAll()[0].getDescription());
@@ -54,7 +54,7 @@ public class TestTodoItems {
     @Test
     public void findByIdFalse() {
         //Act
-        Todo foundId = testTodo.findById(3); // Should return a null
+        Todo foundId = testTodo.findById(3);
 
         //Assert
         assertNull(foundId);
@@ -172,6 +172,34 @@ public class TestTodoItems {
 
         //Assert
         assertEquals(0, arrayUnAssignedPerson.length);
+    }
+
+    @Test
+    public void deletePersonIdNotFound() {
+        //Arrange
+
+        //Act
+        testTodo.deleteTodo(5); // testPeople has only two objects as default
+
+        //Assert
+        assertEquals(2, testTodo.size());
+
+    }
+
+    @Test
+    public void deletePersonIdFound() {
+        //Arrange
+        testTodo.createTodo("Superior Fancy Description");
+
+        //Act
+        testTodo.deleteTodo(2);
+
+        //Assert
+        assertEquals(2, testTodo.size());
+        assertEquals(1, testTodo.findAll()[0].getTodoId());
+        assertEquals("Fancy Description", testTodo.findAll()[0].getDescription());
+        assertEquals(3, testTodo.findAll()[1].getTodoId());
+        assertEquals("Superior Fancy Description", testTodo.findAll()[1].getDescription());
     }
 
 }

@@ -81,5 +81,17 @@ public class TodoItems {
         return noAssigneeInObject;
     }
 
+    public void deleteTodo(int todoPersonId) {
+        for (int i = 0; i < size(); i++) {
+            if (array[i].getTodoId()== todoPersonId) {
+                for (int j = i + 1; j < size(); j++) {
+                    array[i] = array[j];
+                }
+                array = Arrays.copyOf(array, array.length - 1);
+            }
+        }
+    }
+
+
 
 }

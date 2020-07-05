@@ -51,7 +51,4 @@ public class TestTodo {
         assertSame(secondTestPerson, testTodo.getAssignee());
     }
 
-
-
-
 }
